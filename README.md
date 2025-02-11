@@ -183,7 +183,7 @@ type-a-tsnhl-rnccn   Ready   34.32.70.90   7424   gke-atreides-war-fleet-sardauk
 ###### Validating Server Functionality
 Within the test directory, you'll find a Python script (test-script.py) designed to send a request to the deployed game server and validate its response.
 
-Edit Run the script to initiate a test request on our live servers:
+Edit & Run the script to initiate a test request on our live servers:
 ```python
 import socket
 
