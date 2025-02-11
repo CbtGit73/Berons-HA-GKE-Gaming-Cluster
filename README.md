@@ -1,4 +1,4 @@
-Deploying a Highly Available Game Server Cluster on GKE with Agones
+# Deploying a Highly Available Game Server Cluster on GKE with Agones
 ### What is Agones?
 
 Agones provides a plug-and-play solution for deploying and managing game servers on Kubernetes. It simplifies the process of provisioning and scaling game servers by handling networking, lifecycle management, and resource allocation automatically. This allows game infrastructure teams to focus on simple requirements, without needing to manage complex networking or manual server scaling.
@@ -16,10 +16,11 @@ Read the Well written Official Documentation here:
 https://agones.dev/site/docs/
 https://agones.dev/site/docs/getting-started/create-fleet/
 https://agones.dev/site/docs/installation/install-agones/helm/
----
-#### Deployment Steps
 
-##### Step 1: Properly configure your underlying cluster
+---
+### Deployment Steps
+
+#### Step 1: Properly configure your underlying cluster
 
 Ensure that your Kubernetes cluster has private nodes disabled `enable_private_nodes = false`. This allows Agones' networking CRDs to correctly assign node ports to each GameServer pod in your deployments.
 
@@ -34,7 +35,7 @@ This setup provides each GameServer with a unique, directly requestable ID, rath
 ```
 *Upon use of `kubectl get node -o wide` you should see an external address for your nodes.*
 
-##### Step 2: Create a Firewall Rule for Game Server Traffic
+#### Step 2: Create a Firewall Rule for Game Server Traffic
 
 Before deploying game servers with Agones, we need to configure a firewall rule that allows incoming UDP traffic to reach the Kubernetes cluster's nodes. This ensures that game clients can connect to the game servers hosted within the cluster.
 
@@ -54,7 +55,7 @@ resource "google_compute_firewall" "game-cluster" {
 #>>>
 ```
 
-##### Step 3: Installing the operator through Helm
+#### Step 3: Installing the operator through Helm
 
 After setting up the firewall rules, you need to **install and deploy Agones** in your Kubernetes cluster using Helm. This step ensures that the **Agones CRDs, controllers, and networking components** are properly configured.
 
@@ -64,10 +65,7 @@ helm repo add agones https://agones.dev/chart/stable
 helm repo update
 helm install my-release --namespace agones-system --create-namespace agones/agones
 ```
-*Output*
-![[Pasted image 20250210223741.png]]
-
-Now we can deploy game severs to the default namespace. 
+Now we can deploy game severs to the default namespace!
 
 Verify correct instillation using the following command:
 ```shell
@@ -87,7 +85,7 @@ agones-ping-7b766cc5db-cvl7s         1/1     Running   0          14m
 ```
 
 ---
-#### Basic Server YAML Setup 
+##### Basic Server YAML Setup 
 
 My Below Yaml Templates serve as a configurable example for templating servers within this operator. I designed this by editing the template found in the documentation. I integrated the tools I already had existing in my environments.
 
@@ -161,7 +159,7 @@ spec:
 ```
 
 ---
-##### Step 4 : Executing the deployment of a server fleet
+#### Step 4 : Executing the deployment of a server fleet
 
 If using my repository, simply apply the test folder to deploy the Agones fleet and observe the results. 
 
@@ -218,7 +216,7 @@ finally:
 
 ```
 
-###### Step 5 : Testing 
+#### Step 5 : Testing 
 
 Use the below Command and observe the below output from a successful request:
 ``` shell
@@ -234,4 +232,5 @@ Connection closed.
 And now we have a sure fire way of building out many varieties of gaming server.  We need only change images and container ports per new configuration. 
 
 Feel free to experiment and share your learnings.
+
 ---
