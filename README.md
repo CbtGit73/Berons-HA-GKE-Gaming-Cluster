@@ -13,9 +13,9 @@ In short...
 Agones offers a ready-to-use framework for hosting almost any kind of game server while leveraging the scalability and automation of cloud computing with minimal setup
 
 Read the Well written Official Documentation here:
-https://agones.dev/site/docs/
-https://agones.dev/site/docs/getting-started/create-fleet/
-https://agones.dev/site/docs/installation/install-agones/helm/
+- https://agones.dev/site/docs/
+- https://agones.dev/site/docs/getting-started/create-fleet/
+- https://agones.dev/site/docs/installation/install-agones/helm/
 
 ---
 ### Deployment Steps
