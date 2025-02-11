@@ -24,7 +24,7 @@ Read the Well written Official Documentation here:
 
 Ensure that your Kubernetes cluster has private nodes disabled `enable_private_nodes = false`. This allows Agones' networking CRDs to correctly assign node ports to each GameServer pod in your deployments.
 
-This setup provides each GameServer with a unique, directly requestable ID, rather than relying on round-robin load balancing for request distribution. It can likely be integrated with an API that manages routing logic to dynamically allocate and direct traffic to the appropriate GameServer.
+This setup provides each GameServer with a unique, directly requestable ID, rather than relying on round-robin load balancing for request distribution. It can be integrated with an API that manages routing logic to dynamically allocate and direct traffic to the appropriate GameServer.
 
 ``` python
   private_cluster_config {
