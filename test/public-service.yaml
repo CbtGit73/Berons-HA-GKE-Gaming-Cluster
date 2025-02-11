@@ -1,0 +1,14 @@
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: game-server-lb
+#  namespace: default
+#spec:
+#  type: LoadBalancer  # ✅ Exposes the GameServers externally
+#  selector:
+#    agones.dev/fleet: type-a  # ✅ Matches all running GameServers
+#  ports:
+#  - name: game-port
+#    protocol: UDP
+#    port: 7654        # ✅ External Port (Static entry point for clients)
+#    targetPort: 7654 # ✅ Routes to the dynamic GameServer port inside pods
