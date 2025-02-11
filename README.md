@@ -1,7 +1,7 @@
 # Deploying a Highly Available Game Server Cluster on GKE with Agones
 ### What is Agones?
 
-Agones provides a plug-and-play solution for deploying and managing game servers on Kubernetes. It simplifies the process of provisioning and scaling game servers by handling networking, lifecycle management, and resource allocation automatically. This allows game infrastructure teams to focus on simple requirements, without needing to manage complex networking or manual server scaling.
+Agones provides a plug-and-play solution for deploying and managing game servers on Kubernetes. It simplifies the process of provisioning and scaling game servers by abstracting it's CRD's behind a well written operator. This allows infrastructure teams to focus on simple requirements, without needing to manage complex networking or manual server scaling.
 
 Key features
 - **Simplified Deployment** – Deploy game servers with minimal configuration, specifying only the **image, ports, and storage** needed.
