@@ -65,7 +65,7 @@ helm repo add agones https://agones.dev/chart/stable
 helm repo update
 helm install my-release --namespace agones-system --create-namespace agones/agones
 ```
-Now we can deploy game severs to the default namespace!
+Now we can deploy game servers to the default namespace!
 
 Verify correct instillation using the following command:
 ```shell
@@ -89,7 +89,7 @@ agones-ping-7b766cc5db-cvl7s         1/1     Running   0          14m
 
 My Below Yaml Templates serve as a configurable example for templating servers within this operator. I designed this by editing the template found in the documentation. I integrated the tools I already had existing in my environments.
 
-Through modifying the below takeaways this YAML example can be configured to host any type of game sever.
+Through modifying the below points, this YAML example can be configured to host any type of game server.
 
 Key Takeaways:
 - Define `containerPort` for the pods and the service to match the port request of your specific game server image.
