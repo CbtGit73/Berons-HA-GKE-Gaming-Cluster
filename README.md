@@ -304,7 +304,7 @@ helm upgrade --install --wait grafana grafana/grafana --namespace metrics \
 kubectl port-forward deployments/grafana 3000 -n metrics
 ```
 
-You can now view your active metrics by taking a look at your dashboards within Grafana after logging in. If you're on a higher level free to design and implement your own dashboard configurations. 
+You can now view your active metrics by taking a look at your dashboards within Grafana after logging in. If you're on a higher level, free to design and implement your own dashboard configurations. 
 
 ---
 ## Key Troubleshooting Takeaways Learned from Deploying these Monitoring Tools
