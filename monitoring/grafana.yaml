@@ -1,0 +1,30 @@
+---
+service:
+  port: 3000
+# ONLY UNCOMMENT IF USING AGONES SPECIFIC TAINTS AND TOLERATIONS
+# tolerations:
+#   - key: agones.dev/agones-metrics
+#     operator: Equal
+#     value: 'true'
+#     effect: NoExecute
+# affinity:
+#   nodeAffinity:
+#     preferredDuringSchedulingIgnoredDuringExecution:
+#       - weight: 1
+#         preference:
+#           matchExpressions:
+#             - key: agones.dev/agones-metrics
+#               operator: Exists
+sidecar:
+  dashboards:
+    enabled: true
+plugins: grafana-piechart-panel
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        url: http://prom-prometheus-server.metrics.svc.cluster.local:80/
+        access: proxy
+        isDefault: true

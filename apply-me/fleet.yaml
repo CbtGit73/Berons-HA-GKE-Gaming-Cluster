@@ -1,0 +1,47 @@
+apiVersion: agones.dev/v1
+kind: Fleet
+metadata:
+  name: type-a
+  namespace: default  # Change if needed
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: type-a
+    spec:
+      ports:
+      - name: default
+        containerPort: 7654
+#        hostPort: 7654  only turn on when using a Static port policy
+        portPolicy: Dynamic 
+        protocol: UDP
+      template:
+        spec:
+          containers:
+          - name: simple-game-server
+            image: us-docker.pkg.dev/agones-images/examples/simple-game-server:0.36
+            volumeMounts:          
+            - name: orbiter-module
+              mountPath: /home/Agones
+          volumes:
+          - name: orbiter-module
+            persistentVolumeClaim:
+              claimName: orbiter-module
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: orbiter-module
+  namespace: default
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: "bordeaux"

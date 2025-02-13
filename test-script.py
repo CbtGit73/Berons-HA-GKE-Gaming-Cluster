@@ -2,7 +2,7 @@ import socket
 
 server_ip = "34.32.70.90" # Change to IP address assigned to pod
 server_port = 7972 # Change to the port of the server you want to test
-message = "Hello from outside"
+message = "Hello from the otherside"
 
 # Create UDP socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -21,5 +21,5 @@ try:
 
 finally:
     sock.close()
-    print("Connection closed.")
+    print("Connection closed. Have a blessed day.")
 
