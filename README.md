@@ -266,8 +266,7 @@ helm upgrade --install prom prometheus-community/prometheus --namespace metrics 
     --set server.persistentVolume.storageClass="agones-prom-store" \
     -f ./prometheus.yaml
 ```
-*"For resiliency it is recommended to run Prometheus on a dedicated node which is separate from nodes where Game Servers are scheduled. If you use the above command, with our to set up Prometheus, it will schedule Prometheus pods on nodes tainted with ``agones.dev/agones-metrics=true:NoExecute`` and  labeled with ``agones.dev/agones-metrics=true`` if available."*
-- *Meaning if you label a separate node as above our deployment steps will automatically separate Prometheus unto a different node from our cluster workloads*
+*"For resiliency it is recommended to run Prometheus on a dedicated node which is separate from nodes where Game Servers are scheduled.*
 
 4. Access the application and check for coverage using the below command in a separate terminal from your working terminal. 
 ```shell
