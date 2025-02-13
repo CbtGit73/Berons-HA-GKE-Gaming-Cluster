@@ -255,7 +255,7 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 helm repo update
 ```
 
-3. Use the following template to create an instance with an attached persistent disk using our template. - *I'm limiting the disk size to 10gb for demonstration purposes*
+3. Use the following template to create an instance with an attached persistent disk using our template. - *The disk size is 10gb for demonstration purposes*
 
 Make sure you run this command from within the monitoring directory
 ``` shell
