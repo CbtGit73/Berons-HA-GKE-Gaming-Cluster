@@ -293,7 +293,7 @@ helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 ```
 
-4. And Install using your desired admin password
+4. Install using your desired admin password
 ```shell
 helm upgrade --install --wait grafana grafana/grafana --namespace metrics \
   --set adminPassword=admin -f ./grafana.yaml
